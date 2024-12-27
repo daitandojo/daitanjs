@@ -1,5 +1,5 @@
 {
-  "name": "@daitan/communication",
+  "name": "@daitanjs/communication",
   "version": "1.0.0",
   "description": "An email and SMS library",
   "type": "module",
@@ -10,7 +10,8 @@
     }
   },
   "keywords": [
-    "Email", "SMS"
+    "Email",
+    "SMS"
   ],
   "author": "",
   "license": "ISC",
@@ -21,5 +22,7 @@
     "nodemailer": "latest",
     "twilio": "latest"
   },
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }

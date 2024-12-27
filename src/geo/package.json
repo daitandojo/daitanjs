@@ -1,5 +1,5 @@
 {
-  "name": "@daitan/geo",
+  "name": "@daitanjs/geo",
   "version": "1.0.0",
   "description": "A library for geolocation utilities, including geocoding, reverse geocoding, and spatial calculations.",
   "type": "module",
@@ -16,8 +16,7 @@
     "reverse geocoding",
     "geohash",
     "spatial",
-    "nominatim",
-    "daitan"
+    "nominatim"
   ],
   "author": "",
   "license": "ISC",
@@ -26,5 +25,7 @@
     "ngeohash": "latest",
     "dotenv": "latest"
   },
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }

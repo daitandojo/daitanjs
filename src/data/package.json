@@ -1,5 +1,5 @@
 {
-  "name": "@daitan/data",
+  "name": "@daitanjs/data",
   "version": "1.0.0",
   "description": "Data handling utilities for caching, CSV processing, and database management.",
   "type": "module",
@@ -15,8 +15,7 @@
     "csv",
     "database",
     "mongodb",
-    "mongoose",
-    "daitan"
+    "mongoose"
   ],
   "author": "",
   "license": "ISC",
@@ -35,5 +34,7 @@
     "mongodb": "latest",
     "passport-local-mongoose": "latest"
   },
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }

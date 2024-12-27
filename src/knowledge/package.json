@@ -1,5 +1,5 @@
 {
-  "name": "@daitan/knowledge",
+  "name": "@daitanjs/knowledge",
   "version": "1.0.0",
   "description": "A library providing structured knowledge about languages, countries, weekdays, and other world information.",
   "type": "module",
@@ -14,12 +14,13 @@
     "languages",
     "countries",
     "weekdays",
-    "data utilities",
-    "daitan"
+    "data utilities"
   ],
   "author": "",
   "license": "ISC",
   "peerDependencies": {},
   "dependencies": {},
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }

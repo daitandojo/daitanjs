@@ -1,4 +1,4 @@
-import { construct, generateIntelligence } from '@daitan/intelligence';
+import { construct, generateIntelligence } from '@daitanjs/intelligence';
 
 const runExample = async () => {
   try {

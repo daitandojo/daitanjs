@@ -1,5 +1,5 @@
 {
-  "name": "@daitan/html",
+  "name": "@daitanjs/html",
   "version": "1.0.0",
   "description": "A utility library for generating reusable and customizable HTML components.",
   "type": "module",
@@ -14,8 +14,7 @@
     "components",
     "utility",
     "custom styles",
-    "web development",
-    "daitan"
+    "web development"
   ],
   "author": "",
   "license": "ISC",
@@ -23,5 +22,7 @@
     "lodash": "^4.17.21"
   },
   "dependencies": {},
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }

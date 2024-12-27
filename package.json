@@ -1,40 +1,16 @@
 {
-  "name": "daitan",
+  "name": "daitanjs",
   "version": "1.0.0",
   "private": true,
-  "description": "Monorepo for all @daitan scoped libraries",
+  "description": "Monorepo for all @daitanjs scoped libraries",
   "type": "module",
   "workspaces": [
-    "src/apiqueries",
-    "src/authentication",
-    "src/communication",
-    "src/data",
-    "src/development",
-    "src/embeddings",
-    "src/error",
-    "src/finance",
-    "src/geo",
-    "src/html",
-    "src/images",
-    "src/intelligence",
-    "src/knowledge",
-    "src/manipulation",
-    "src/office",
-    "src/pdf",
-    "src/security",
-    "src/senses",
-    "src/speech",
-    "src/users",
-    "src/utilities",
-    "src/validation",
-    "src/web"
+    "src/*"
   ],
   "scripts": {
-    "update-workspaces": "node updateWorkspaces.js",
-    "build": "npm run update-workspaces && node esbuild.config.js",
+    "build": "node esbuild.config.js",
     "clean": "npm run clean -w",
     "test": "npm run test -w",
-    "install-all": "npm run update-workspaces && npm install",
     "rebuild-all": "npm run clean && npm install && npm run build",
     "build-watch": "npm run build && chokidar 'src/**/*' --ignore 'src/**/dist/**' --ignore 'src/node_modules/**' --ignore 'src/package.json' --debounce 5000 -c 'npm run build'"
   },
@@ -47,6 +23,7 @@
   "dependencies": {
     "dotenv": "^16.4.7",
     "esbuild": "^0.24.2",
+    "glob": "^11.0.0",
     "ignore": "^7.0.0",
     "node-fetch": "^3.3.2"
   }

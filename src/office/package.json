@@ -1,5 +1,5 @@
 {
-  "name": "@daitan/office",
+  "name": "@daitanjs/office",
   "version": "1.0.0",
   "description": "A library for creating and managing Excel, PowerPoint, and Word documents.",
   "type": "module",
@@ -18,8 +18,7 @@
     "charts",
     "PptxGenJS",
     "docx",
-    "ExcelJS",
-    "daitan"
+    "ExcelJS"
   ],
   "author": "",
   "license": "ISC",
@@ -32,5 +31,7 @@
     "officegen": "latest",
     "mammoth": "latest"
   },
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }

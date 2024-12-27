@@ -1,5 +1,5 @@
 {
-  "name": "@daitan/intelligence",
+  "name": "@daitanjs/intelligence",
   "version": "1.0.0",
   "description": "A comprehensive JavaScript library for intelligence",
   "type": "module",
@@ -27,5 +27,7 @@
     "dotenv": "latest",
     "chalk": "latest"
   },
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }

@@ -7,7 +7,7 @@ import pkg from 'random-useragent';
 import { load } from 'cheerio';
 import fetch from 'node-fetch';
 // import { getLogger } from '../development';
-import { retryOperation } from '@daitan/utilities';
+import { retryOperation } from '@daitanjs/utilities';
 
 const { randomUserAgent } = pkg;
 
@@ -23,7 +23,12 @@ const MAX_RETRIES = 3;
 
 // Unified Function to Download and Optionally Extract Content
 const downloadAndExtract = async ({ url, options = {}, logger }) => {
-  const { parserType = 'jsdom', articleStructure, className, extractLinks = false } = options;
+  const {
+    parserType = 'jsdom',
+    articleStructure,
+    className,
+    extractLinks = false,
+  } = options;
 
   try {
     let result;
@@ -31,7 +36,13 @@ const downloadAndExtract = async ({ url, options = {}, logger }) => {
     switch (parserType.toLowerCase()) {
       case 'jsdom':
         try {
-          result = await downloadWithJSDOM({ url, articleStructure, className, extractLinks, logger });
+          result = await downloadWithJSDOM({
+            url,
+            articleStructure,
+            className,
+            extractLinks,
+            logger,
+          });
         } catch (error) {
           console.log(`JSDOM download failed for URL: ${url}`, {
             error: error instanceof Error ? error.message : String(error),
@@ -43,7 +54,13 @@ const downloadAndExtract = async ({ url, options = {}, logger }) => {
 
       case 'cheerio':
         try {
-          result = await downloadWithCheerio({ url, articleStructure, className, extractLinks, logger });
+          result = await downloadWithCheerio({
+            url,
+            articleStructure,
+            className,
+            extractLinks,
+            logger,
+          });
         } catch (error) {
           console.log(`Cheerio download failed for URL: ${url}`, {
             error: error instanceof Error ? error.message : String(error),
@@ -56,7 +73,14 @@ const downloadAndExtract = async ({ url, options = {}, logger }) => {
       case 'puppeteer':
         try {
           result = await retryOperation(
-            () => downloadWithPuppeteer({ url, articleStructure, className, extractLinks, logger }),
+            () =>
+              downloadWithPuppeteer({
+                url,
+                articleStructure,
+                className,
+                extractLinks,
+                logger,
+              }),
             MAX_RETRIES,
             'Puppeteer'
           );
@@ -70,10 +94,19 @@ const downloadAndExtract = async ({ url, options = {}, logger }) => {
         break;
 
       case 'playwright':
-        console.log(`Initiating Playwright download for URL: ${url} with ${MAX_RETRIES} retries allowed.`);
+        console.log(
+          `Initiating Playwright download for URL: ${url} with ${MAX_RETRIES} retries allowed.`
+        );
         try {
           result = await retryOperation(
-            () => downloadWithPlaywright({ url, articleStructure, className, extractLinks, logger }),
+            () =>
+              downloadWithPlaywright({
+                url,
+                articleStructure,
+                className,
+                extractLinks,
+                logger,
+              }),
             MAX_RETRIES,
             'Playwright'
           );
@@ -94,10 +127,14 @@ const downloadAndExtract = async ({ url, options = {}, logger }) => {
 
     // Handle the result after download
     if (result && result.status === 'success') {
-      console.log(`Successfully extracted data from ${url} using ${parserType}`);
+      console.log(
+        `Successfully extracted data from ${url} using ${parserType}`
+      );
       return result.data;
     } else {
-      const extractionError = `Extraction failed for ${url} with parser ${parserType}: ${result?.message || 'Unknown error'}`;
+      const extractionError = `Extraction failed for ${url} with parser ${parserType}: ${
+        result?.message || 'Unknown error'
+      }`;
       console.log(extractionError);
       throw new Error(extractionError);
     }
@@ -119,7 +156,7 @@ const downloadWithJSDOM = async ({
   articleStructure,
   className,
   extractLinks,
-  logger
+  logger,
 }) => {
   try {
     const response = await fetchWithTimeout(url, TIMEOUT);
@@ -133,7 +170,7 @@ const downloadWithJSDOM = async ({
       articleStructure,
       className,
       extractLinks,
-      false,
+      false
     );
     return { status: 'success', data: content };
   } catch (error) {
@@ -147,7 +184,7 @@ const downloadWithCheerio = async ({
   articleStructure,
   className,
   extractLinks,
-  logger
+  logger,
 }) => {
   try {
     const response = await fetchWithTimeout(url, TIMEOUT);
@@ -161,7 +198,7 @@ const downloadWithCheerio = async ({
       articleStructure,
       className,
       extractLinks,
-      true,
+      true
     );
     return { status: 'success', data: content };
   } catch (error) {
@@ -171,7 +208,13 @@ const downloadWithCheerio = async ({
 };
 
 // Helper Function to Extract Content
-const extractContent = (parser, articleStructure, className, extractLinks, isCheerio = false) => {
+const extractContent = (
+  parser,
+  articleStructure,
+  className,
+  extractLinks,
+  isCheerio = false
+) => {
   try {
     if (articleStructure) {
       // Extract using article structure
@@ -193,9 +236,15 @@ const extractContent = (parser, articleStructure, className, extractLinks, isChe
     } else if (className) {
       // Extract text or text and links by class name
       let elements = isCheerio
-        ? parser(`.${className}`).map((_, el) => extractElement(parser(el), extractLinks)).get()
-        : [...parser.querySelectorAll(`.${className}`)].map((el) => extractElement(el, extractLinks));
-      return elements.filter((item) => item.text && (extractLinks ? item.link : true));
+        ? parser(`.${className}`)
+            .map((_, el) => extractElement(parser(el), extractLinks))
+            .get()
+        : [...parser.querySelectorAll(`.${className}`)].map((el) =>
+            extractElement(el, extractLinks)
+          );
+      return elements.filter(
+        (item) => item.text && (extractLinks ? item.link : true)
+      );
     } else {
       return {};
     }
@@ -212,8 +261,8 @@ const extractElement = (el, extractLinks) => {
     extractLinks && el.attr
       ? el.attr('href')
       : el.tagName === 'a'
-        ? el.getAttribute('href')
-        : null;
+      ? el.getAttribute('href')
+      : null;
   return { text: textContent, link };
 };
 
@@ -246,7 +295,7 @@ const downloadWithPuppeteer = async ({
   articleStructure,
   className,
   extractLinks,
-  logger
+  logger,
 }) => {
   let browser;
   try {
@@ -278,7 +327,7 @@ const downloadWithPlaywright = async ({
   articleStructure,
   className,
   extractLinks,
-  logger
+  logger,
 }) => {
   const browser = await playwright.chromium.launch({ headless: true });
   try {
@@ -312,7 +361,7 @@ const extractFromPage = async ({
     const content = {};
     for (const { elementName, selector } of articleStructure) {
       const elements = await page.$$eval(selector, (els) =>
-        els.map((el) => el.textContent.trim()).filter(Boolean),
+        els.map((el) => el.textContent.trim()).filter(Boolean)
       );
       content[elementName] = elements;
     }
@@ -333,7 +382,7 @@ const extractFromPage = async ({
             return { text, link };
           })
           .filter((item) => item.text && (extractLinks ? item.link : true)),
-      extractLinks,
+      extractLinks
     );
   } else {
     return {};

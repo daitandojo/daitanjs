@@ -1,5 +1,5 @@
 {
-  "name": "@daitan/validation",
+  "name": "@daitanjs/validation",
   "version": "1.0.0",
   "description": "A library providing comprehensive validation utilities for various data types and formats.",
   "type": "module",
@@ -13,7 +13,6 @@
     "validation",
     "data validation",
     "utilities",
-    "daitan",
     "email validation",
     "JSON validation"
   ],
@@ -21,5 +20,7 @@
   "license": "ISC",
   "peerDependencies": {},
   "dependencies": {},
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }

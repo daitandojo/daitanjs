@@ -1,5 +1,5 @@
 {
-  "name": "@daitan/finance",
+  "name": "@daitanjs/finance",
   "version": "1.0.0",
   "description": "A library for retrieval of financial data, prices and currencies.",
   "type": "module",
@@ -14,8 +14,7 @@
     "components",
     "utility",
     "custom styles",
-    "web development",
-    "daitan"
+    "web development"
   ],
   "author": "",
   "license": "ISC",
@@ -25,5 +24,7 @@
   "dependencies": {
     "axios": "latest"
   },
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }

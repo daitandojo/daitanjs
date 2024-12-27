@@ -1,5 +1,5 @@
 {
-  "name": "@daitan/errors",
+  "name": "@daitanjs/errors",
   "version": "1.0.0",
   "description": "A lightweight library for handling and defining custom error types.",
   "type": "module",
@@ -13,8 +13,7 @@
     "errors",
     "exceptions",
     "error handling",
-    "custom errors",
-    "daitan"
+    "custom errors"
   ],
   "author": "",
   "license": "ISC",
@@ -24,5 +23,7 @@
   "dependencies": {
     "express": "latest"
   },
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }

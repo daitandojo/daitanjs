@@ -40,7 +40,7 @@ import {
   updateUserEmail,
   updateUserPassword,
   sendPasswordResetLink,
-} from 'daitanjs/authentication';
+} from 'daitanjsauthentication';
 
 // Example usage:
 async function manageUsers() {

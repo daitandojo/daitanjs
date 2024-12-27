@@ -1,5 +1,5 @@
 {
-  "name": "@daitan/senses",
+  "name": "@daitanjs/senses",
   "version": "1.0.0",
   "description": "A library for AI-powered image generation and analysis.",
   "type": "module",
@@ -14,8 +14,7 @@
     "image generation",
     "image analysis",
     "AI",
-    "OpenAI",
-    "daitan"
+    "OpenAI"
   ],
   "author": "",
   "license": "ISC",
@@ -24,5 +23,7 @@
     "axios": "latest",
     "dotenv": "latest"
   },
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }

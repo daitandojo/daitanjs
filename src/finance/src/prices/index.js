@@ -1,9 +1,12 @@
 import axios from 'axios';
 import { get, set } from './cache.js';
 
+import dotenv from 'dotenv';
+dotenv.config({ path: path.resolve('/home/mark/Repos/.env') });
+
 const API_URL = 'https://api.frankfurter.app';
-const STOCK_API_URL = 'https://www.alphavantage.co/query';
-const STOCK_API_KEY = 'AVZCRQB0I6BIBQG5';
+const ALPHAVANTAGE_STOCK_API_URL = 'https://www.alphavantage.co/query';
+const ALPHAVANTAGE_STOCK_API_KEY = process.env.ALPHAVANTAGE_STOCK_API_KEY;
 
 const CURRENCIES = ['EUR', 'GBP', 'JPY', 'DKK', 'SEK', 'USD', 'AUD', 'CAD', 'CHF', 'CNY', 'NZD', 'INR'];
 
@@ -36,11 +39,11 @@ export async function getStockPrice(identifier, dateDMY, baseCurrency) {
     if (cachedPrice) return cachedPrice;
 
     const dateYMD = dateDMY.split('/').reverse().join('-');
-    const { data } = await axios.get(STOCK_API_URL, {
+    const { data } = await axios.get(ALPHAVANTAGE_STOCK_API_URL, {
         params: {
             function: 'TIME_SERIES_DAILY',
             symbol: identifier,
-            apikey: STOCK_API_KEY
+            apikey: ALPHAVANTAGE_STOCK_API_KEY
         }
     });
 

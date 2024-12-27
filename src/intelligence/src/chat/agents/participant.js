@@ -1,13 +1,13 @@
 import { construct } from '../../intelligence/promptConstruction';
 import { generateIntelligence } from '../../intelligence/generate';
-import { tts } from '@daitan/speech';
+import { tts } from '@daitanjs/speech';
 
 export const generateResponse = async (conversation) => {
   const instruction = generateInstruction(conversation)
-    .replace(/\s+/g, ' ').trim();
+    .replace(/\s+/g, ' ')
+    .trim();
 
-  let prompt = generatePrompt(conversation)
-    .replace(/\s+/g, ' ').trim();
+  let prompt = generatePrompt(conversation).replace(/\s+/g, ' ').trim();
 
   try {
     let messages = construct({ instruction, prompt });
@@ -15,25 +15,25 @@ export const generateResponse = async (conversation) => {
     let response = await generateIntelligence({
       model: conversation.model,
       temperature: conversation.currentSpeaker.temperature,
-      messages
+      messages,
     });
 
     for (let i = 1; i <= 3; i++) {
       console.log(`Iteration ${i}`);
 
       messages.push({
-        "role": 'assistant',
-        "content": JSON.stringify(response)
+        role: 'assistant',
+        content: JSON.stringify(response),
       });
 
       messages.push({
-        "role": 'user',
-        "content": "Please significantly improve the answer."
+        role: 'user',
+        content: 'Please significantly improve the answer.',
       });
 
       response = await generateIntelligence({
         model: conversation.model,
-        messages
+        messages,
       });
     }
 
@@ -42,7 +42,7 @@ export const generateResponse = async (conversation) => {
     await tts({
       text: response.answer,
       gender: conversation.currentSpeaker.gender,
-      language: conversation.language
+      language: conversation.language,
     });
 
     return response;
@@ -52,9 +52,9 @@ export const generateResponse = async (conversation) => {
 };
 
 const generatePrompt = (con) => {
-  const answers = con.conversationHistory.join("\n");
-  const thoughts = con.currentSpeaker.innerWorld.join("\n");
-  const actions = con.nonVerbalActionsHistory.join("\n");
+  const answers = con.conversationHistory.join('\n');
+  const thoughts = con.currentSpeaker.innerWorld.join('\n');
+  const actions = con.nonVerbalActionsHistory.join('\n');
 
   const prompt = `
     History of the conversation: [${answers}]\n
@@ -114,7 +114,7 @@ const getContextInstruction = (con) => {
   const speaker = con.currentSpeaker;
   return `
     The current setting of the conversation is: ${con.setting}.
-    Props present are: ${con.stageProps.join(", ")}.
+    Props present are: ${con.stageProps.join(', ')}.
     You will be prompted with the history of conversations 
     and non-verbal actions. Analyse these, and apply emotional
     intelligence and empathy to make a more fluid conversation,
@@ -155,11 +155,15 @@ const getResponseFormatInstruction = (con) => {
 
 const shouldYield = (con) => {
   const speaker = con.currentSpeaker;
-  const otherParticipants = con.participants.filter(p => p.name !== speaker.name);
+  const otherParticipants = con.participants.filter(
+    (p) => p.name !== speaker.name
+  );
 
   // Calculate a combined score or condition to determine if the speaker should yield
-  return otherParticipants.some(participant => {
-    return participant.objective !== speaker.objective && 
-           speaker.yieldingThreshold > Math.random() * 100;
+  return otherParticipants.some((participant) => {
+    return (
+      participant.objective !== speaker.objective &&
+      speaker.yieldingThreshold > Math.random() * 100
+    );
   });
 };

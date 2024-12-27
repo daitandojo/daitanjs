@@ -1,5 +1,5 @@
 {
-  "name": "@daitan/development",
+  "name": "@daitanjs/development",
   "version": "1.0.0",
   "description": "Development utilities for environment management, Google APIs, and system information.",
   "type": "module",
@@ -15,8 +15,7 @@
     "googleapis",
     "systeminformation",
     "winston",
-    "utilities",
-    "daitan"
+    "utilities"
   ],
   "author": "",
   "license": "ISC",
@@ -29,5 +28,7 @@
     "systeminformation": "latest",
     "winston": "latest"
   },
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }

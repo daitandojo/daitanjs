@@ -1,5 +1,5 @@
 {
-  "name": "@daitan/web",
+  "name": "@daitanjs/web",
   "version": "1.0.0",
   "description": "A library for web scraping, web content extraction, and Google Custom Search.",
   "type": "module",
@@ -17,8 +17,7 @@
     "playwright",
     "jsdom",
     "cheerio",
-    "node-fetch",
-    "daitan"
+    "node-fetch"
   ],
   "author": "",
   "license": "ISC",
@@ -33,5 +32,7 @@
     "node-fetch": "latest",
     "dotenv": "latest"
   },
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }

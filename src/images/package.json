@@ -1,5 +1,5 @@
 {
-  "name": "@daitan/images",
+  "name": "@daitanjs/images",
   "version": "1.0.0",
   "description": "A library for uploading and managing images with support for Backblaze B2, Cloudinary, and Firebase.",
   "type": "module",
@@ -15,8 +15,7 @@
     "Backblaze B2",
     "Cloudinary",
     "Firebase",
-    "file storage",
-    "daitan"
+    "file storage"
   ],
   "author": "",
   "license": "ISC",
@@ -27,5 +26,7 @@
     "dotenv": "latest",
     "firebase": "latest"
   },
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }

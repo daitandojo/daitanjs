@@ -1,5 +1,5 @@
 {
-  "name": "@daitan/users",
+  "name": "@daitanjs/users",
   "version": "1.0.0",
   "description": "A library for managing user data, including creation, retrieval, and updates.",
   "type": "module",
@@ -14,13 +14,13 @@
     "user management",
     "create user",
     "update user",
-    "retrieve user",
-    "daitan"
+    "retrieve user"
   ],
   "author": "",
   "license": "ISC",
   "peerDependencies": {},
-  "dependencies": {
-  },
-  "publishConfig": { "access": "public" }
+  "dependencies": {},
+  "publishConfig": {
+    "access": "public"
+  }
 }

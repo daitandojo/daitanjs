@@ -1,5 +1,5 @@
 {
-  "name": "@daitan/speech",
+  "name": "@daitanjs/speech",
   "version": "1.0.0",
   "description": "A library for text-to-speech synthesis using Google Cloud Text-to-Speech.",
   "type": "module",
@@ -14,8 +14,7 @@
     "text-to-speech",
     "TTS",
     "Google Cloud",
-    "audio synthesis",
-    "daitan"
+    "audio synthesis"
   ],
   "author": "",
   "license": "ISC",
@@ -26,5 +25,7 @@
     "dotenv": "latest",
     "@google-cloud/text-to-speech": "latest"
   },
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }

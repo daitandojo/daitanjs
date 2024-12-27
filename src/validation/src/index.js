@@ -3,7 +3,7 @@
  * @description A comprehensive set of validation functions for common data types and formats.
  */
 
-import { cleanJSONString } from '@daitan/manipulation';
+import { cleanJSONString } from '@daitanjs/manipulation';
 
 function isValidJSON(jsonString) {
   const cleanedString = cleanJSONString(jsonString);
@@ -21,10 +21,13 @@ function isValidJSON(jsonString) {
       const end = Math.min(cleanedString.length, position + 20);
       const nearText = cleanedString.slice(start, end);
 
-      enhancedError += `\nNear: "...${nearText}..."\n${' '.repeat(position - start + 3)}^`;
-      enhancedError += jsonString.includes('“') || jsonString.includes('”')
-        ? '\nHint: Detected smart quotes. Replace with straight quotes.'
-        : '';
+      enhancedError += `\nNear: "...${nearText}..."\n${' '.repeat(
+        position - start + 3
+      )}^`;
+      enhancedError +=
+        jsonString.includes('“') || jsonString.includes('”')
+          ? '\nHint: Detected smart quotes. Replace with straight quotes.'
+          : '';
     }
 
     return { isValid: false, json: null, error: enhancedError };
@@ -37,7 +40,8 @@ function isValidJSON(jsonString) {
  * @returns {boolean} True if the email is valid, false otherwise.
  */
 function isEmail(email) {
-  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const re =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
 }
 
@@ -63,7 +67,11 @@ function isPhone(phoneNumber) {
 function isName(name, { minLength = 2, maxLength = 50 } = {}) {
   if (typeof name !== 'string') return false;
   const trimmedName = name.trim();
-  return trimmedName.length >= minLength && trimmedName.length <= maxLength && /^[a-zA-Z\s'-\u00C0-\u017F]+$/.test(trimmedName);
+  return (
+    trimmedName.length >= minLength &&
+    trimmedName.length <= maxLength &&
+    /^[a-zA-Z\s'-\u00C0-\u017F]+$/.test(trimmedName)
+  );
 }
 
 /**
@@ -77,13 +85,16 @@ function isName(name, { minLength = 2, maxLength = 50 } = {}) {
  * @param {boolean} [options.requireSpecialChars=true] - Require at least one special character.
  * @returns {boolean} True if the password is valid, false otherwise.
  */
-function isPassword(password, {
-  minLength = 8,
-  requireUppercase = true,
-  requireLowercase = true,
-  requireNumbers = true,
-  requireSpecialChars = true
-} = {}) {
+function isPassword(
+  password,
+  {
+    minLength = 8,
+    requireUppercase = true,
+    requireLowercase = true,
+    requireNumbers = true,
+    requireSpecialChars = true,
+  } = {}
+) {
   if (typeof password !== 'string' || password.length < minLength) return false;
 
   const hasUppercase = /[A-Z]/.test(password);
@@ -91,10 +102,12 @@ function isPassword(password, {
   const hasNumbers = /\d/.test(password);
   const hasSpecialChars = /[!@#$%^&*(),.?":{}|<>]/.test(password);
 
-  return (!requireUppercase || hasUppercase) &&
-         (!requireLowercase || hasLowercase) &&
-         (!requireNumbers || hasNumbers) &&
-         (!requireSpecialChars || hasSpecialChars);
+  return (
+    (!requireUppercase || hasUppercase) &&
+    (!requireLowercase || hasLowercase) &&
+    (!requireNumbers || hasNumbers) &&
+    (!requireSpecialChars || hasSpecialChars)
+  );
 }
 
 /**
@@ -107,12 +120,16 @@ function isPassword(password, {
 function isURL(url, { requireProtocol = true } = {}) {
   if (typeof url !== 'string') return false;
 
-  const protocolRegex = requireProtocol ? '^(https?:\/\/)?' : '^';
-  const urlRegex = new RegExp(protocolRegex + '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' +
-                               '((\\d{1,3}\\.){3}\\d{1,3}))' +
-                               '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' +
-                               '(\\?[;&a-z\\d%_.~+=-]*)?' +
-                               '(\\#[-a-z\\d_]*)?$', 'i');
+  const protocolRegex = requireProtocol ? '^(https?://)?' : '^';
+  const urlRegex = new RegExp(
+    protocolRegex +
+      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' +
+      '((\\d{1,3}\\.){3}\\d{1,3}))' +
+      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' +
+      '(\\?[;&a-z\\d%_.~+=-]*)?' +
+      '(\\#[-a-z\\d_]*)?$',
+    'i'
+  );
   return urlRegex.test(url);
 }
 
@@ -128,7 +145,7 @@ function isDate(dateString, format = 'YYYY-MM-DD') {
   const formatRegex = {
     'YYYY-MM-DD': /^\d{4}-\d{2}-\d{2}$/,
     'MM/DD/YYYY': /^\d{2}\/\d{2}\/\d{4}$/,
-    'DD.MM.YYYY': /^\d{2}\.\d{2}\.\d{4}$/
+    'DD.MM.YYYY': /^\d{2}\.\d{2}\.\d{4}$/,
   };
 
   if (!formatRegex[format].test(dateString)) return false;
@@ -137,7 +154,11 @@ function isDate(dateString, format = 'YYYY-MM-DD') {
   const [year, month, day] = format === 'YYYY-MM-DD' ? parts : parts.reverse();
 
   const isoDate = new Date(year, month - 1, day);
-  return isoDate.getFullYear() == year && isoDate.getMonth() + 1 == month && isoDate.getDate() == day;
+  return (
+    isoDate.getFullYear() == year &&
+    isoDate.getMonth() + 1 == month &&
+    isoDate.getDate() == day
+  );
 }
 
 /**
@@ -146,8 +167,10 @@ function isDate(dateString, format = 'YYYY-MM-DD') {
  * @returns {boolean} True if the IP address is valid, false otherwise.
  */
 function isIP(ip) {
-  const ipv4Regex = /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
-  const ipv6Regex = /^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))$/;
+  const ipv4Regex =
+    /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+  const ipv6Regex =
+    /^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))$/;
 
   return ipv4Regex.test(ip) || ipv6Regex.test(ip);
 }
@@ -190,5 +213,5 @@ export {
   isURL,
   isDate,
   isIP,
-  isCreditCard
+  isCreditCard,
 };

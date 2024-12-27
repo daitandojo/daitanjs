@@ -1,5 +1,5 @@
 {
-  "name": "@daitan/utilities",
+  "name": "@daitanjs/utilities",
   "version": "1.0.0",
   "description": "A utility library for retry mechanisms, batch processing, and error handling.",
   "type": "module",
@@ -13,12 +13,13 @@
     "utilities",
     "retry",
     "batch processing",
-    "error handling",
-    "daitan"
+    "error handling"
   ],
   "author": "",
   "license": "ISC",
   "peerDependencies": {},
   "dependencies": {},
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }

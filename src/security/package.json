@@ -1,5 +1,5 @@
 {
-  "name": "@daitan/security",
+  "name": "@daitanjs/security",
   "version": "1.0.0",
   "description": "A lightweight library for token generation and verification.",
   "type": "module",
@@ -13,12 +13,13 @@
     "security",
     "token",
     "authentication",
-    "validation",
-    "daitan"
+    "validation"
   ],
   "author": "",
   "license": "ISC",
   "peerDependencies": {},
   "dependencies": {},
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }

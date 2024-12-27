@@ -1,5 +1,5 @@
 {
-  "name": "@daitan/manipulation",
+  "name": "@daitanjs/manipulation",
   "version": "1.0.0",
   "description": "A library to manipulate JSON, strings and dates.",
   "type": "module",
@@ -14,12 +14,13 @@
     "languages",
     "countries",
     "weekdays",
-    "data utilities",
-    "daitan"
+    "data utilities"
   ],
   "author": "",
   "license": "ISC",
   "peerDependencies": {},
   "dependencies": {},
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }
