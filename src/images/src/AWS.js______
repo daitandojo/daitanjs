@@ -1,0 +1,51 @@
+import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
+import axios from 'axios';
+import { config } from 'dotenv';
+
+config();
+
+const s3 = new S3Client({
+    region: process.env.AWS_REGION,
+    credentials: {
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    },
+});
+
+const uploadImageToAWS = async (file) => {
+    try {
+        console.log("URL OF BLOB:", file);
+        console.log("Extracting blob...");
+
+        const response = await axios({
+            method: "get",
+            url: file,
+            responseType: "arraybuffer", // Use arraybuffer for binary data
+        });
+
+        console.log("Reading complete...");
+        const base64data = Buffer.from(response.data).toString('base64');
+
+        const params = {
+            Bucket: process.env.S3_BUCKET_NAME,
+            Key: `uploads/${Date.now()}.png`,
+            Body: Buffer.from(base64data, 'base64'),
+            ContentType: 'image/png',
+        };
+
+        console.log("Uploading to S3...");
+        const command = new PutObjectCommand(params);
+        const data = await s3.send(command);
+
+        console.log("Receiving results...");
+        const location = `https://${process.env.S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/${params.Key}`;
+        console.log("Resolving:", location);
+
+        return location;
+    } catch (error) {
+        console.error("Error uploading to S3:", error);
+        throw error;
+    }
+};
+
+export { uploadImageToAWS };

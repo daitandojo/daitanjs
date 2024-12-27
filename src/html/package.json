@@ -1,0 +1,27 @@
+{
+  "name": "@daitan/html",
+  "version": "1.0.0",
+  "description": "A utility library for generating reusable and customizable HTML components.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "keywords": [
+    "html",
+    "components",
+    "utility",
+    "custom styles",
+    "web development",
+    "daitan"
+  ],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "lodash": "^4.17.21"
+  },
+  "dependencies": {},
+  "publishConfig": { "access": "public" }
+}

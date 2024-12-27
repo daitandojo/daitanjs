@@ -1,0 +1,28 @@
+{
+  "name": "@daitan/errors",
+  "version": "1.0.0",
+  "description": "A lightweight library for handling and defining custom error types.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "keywords": [
+    "errors",
+    "exceptions",
+    "error handling",
+    "custom errors",
+    "daitan"
+  ],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "lodash": "^4.17.21"
+  },
+  "dependencies": {
+    "express": "latest"
+  },
+  "publishConfig": { "access": "public" }
+}

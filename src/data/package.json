@@ -1,0 +1,39 @@
+{
+  "name": "@daitan/data",
+  "version": "1.0.0",
+  "description": "Data handling utilities for caching, CSV processing, and database management.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "keywords": [
+    "data",
+    "caching",
+    "csv",
+    "database",
+    "mongodb",
+    "mongoose",
+    "daitan"
+  ],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "lodash": "^4.17.21",
+    "uuid": ">=9.0.0"
+  },
+  "dependencies": {
+    "node-cache": "latest",
+    "axios": "latest",
+    "winston": "latest",
+    "csv-parse": "latest",
+    "csv-stringify": "latest",
+    "dotenv": "latest",
+    "mongoose": "latest",
+    "mongodb": "latest",
+    "passport-local-mongoose": "latest"
+  },
+  "publishConfig": { "access": "public" }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "@daitan/senses",
+  "version": "1.0.0",
+  "description": "A library for AI-powered image generation and analysis.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "keywords": [
+    "senses",
+    "image generation",
+    "image analysis",
+    "AI",
+    "OpenAI",
+    "daitan"
+  ],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {},
+  "dependencies": {
+    "axios": "latest",
+    "dotenv": "latest"
+  },
+  "publishConfig": { "access": "public" }
+}

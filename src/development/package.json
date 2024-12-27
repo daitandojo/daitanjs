@@ -1,0 +1,33 @@
+{
+  "name": "@daitan/development",
+  "version": "1.0.0",
+  "description": "Development utilities for environment management, Google APIs, and system information.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "keywords": [
+    "development",
+    "dotenv",
+    "googleapis",
+    "systeminformation",
+    "winston",
+    "utilities",
+    "daitan"
+  ],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "lodash": "^4.17.21"
+  },
+  "dependencies": {
+    "dotenv": "latest",
+    "googleapis": "latest",
+    "systeminformation": "latest",
+    "winston": "latest"
+  },
+  "publishConfig": { "access": "public" }
+}

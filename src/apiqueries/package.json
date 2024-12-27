@@ -1,0 +1,24 @@
+{
+  "name": "@daitan/apiqueries",
+  "version": "1.0.0",
+  "description": "A library for making HTTP requests with a standardized configuration.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "keywords": [
+    "API",
+    "HTTP requests",
+    "fetch",
+    "query",
+    "daitan"
+  ],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {},
+  "dependencies": {},
+  "publishConfig": { "access": "public" }
+}

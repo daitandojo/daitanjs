@@ -1,0 +1,25 @@
+{
+  "name": "@daitan/communication",
+  "version": "1.0.0",
+  "description": "An email and SMS library",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "keywords": [
+    "Email", "SMS"
+  ],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "uuid": ">=9.0.0"
+  },
+  "dependencies": {
+    "nodemailer": "latest",
+    "twilio": "latest"
+  },
+  "publishConfig": { "access": "public" }
+}

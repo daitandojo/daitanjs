@@ -1,0 +1,24 @@
+{
+  "name": "@daitan/security",
+  "version": "1.0.0",
+  "description": "A lightweight library for token generation and verification.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "keywords": [
+    "security",
+    "token",
+    "authentication",
+    "validation",
+    "daitan"
+  ],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {},
+  "dependencies": {},
+  "publishConfig": { "access": "public" }
+}

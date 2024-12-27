@@ -1,0 +1,31 @@
+{
+  "name": "@daitan/intelligence",
+  "version": "1.0.0",
+  "description": "A comprehensive JavaScript library for intelligence",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "keywords": [
+    "intelligence",
+    "LLM",
+    "prompting",
+    "AI",
+    "machine learning",
+    "language models"
+  ],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "lodash": "^4.17.21",
+    "uuid": ">=9.0.0"
+  },
+  "dependencies": {
+    "dotenv": "latest",
+    "chalk": "latest"
+  },
+  "publishConfig": { "access": "public" }
+}

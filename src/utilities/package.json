@@ -1,0 +1,24 @@
+{
+  "name": "@daitan/utilities",
+  "version": "1.0.0",
+  "description": "A utility library for retry mechanisms, batch processing, and error handling.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "keywords": [
+    "utilities",
+    "retry",
+    "batch processing",
+    "error handling",
+    "daitan"
+  ],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {},
+  "dependencies": {},
+  "publishConfig": { "access": "public" }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "@daitan/finance",
+  "version": "1.0.0",
+  "description": "A library for retrieval of financial data, prices and currencies.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "keywords": [
+    "html",
+    "components",
+    "utility",
+    "custom styles",
+    "web development",
+    "daitan"
+  ],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "lodash": "^4.17.21"
+  },
+  "dependencies": {
+    "axios": "latest"
+  },
+  "publishConfig": { "access": "public" }
+}

@@ -1,0 +1,21 @@
+id,name,age,gender,city,occupation,salary
+1,John Smith,35,Male,New York,Engineer,85000
+2,Emma Johnson,28,Female,Los Angeles,Teacher,55000
+3,Michael Brown,42,Male,Chicago,Manager,95000
+4,Sophia Davis,31,Female,Houston,Designer,65000
+5,William Wilson,39,Male,Phoenix,Accountant,75000
+6,Olivia Taylor,26,Female,Philadelphia,Nurse,60000
+7,James Anderson,45,Male,San Antonio,Lawyer,110000
+8,Ava Thomas,33,Female,San Diego,Marketing Specialist,70000
+9,Robert Jackson,37,Male,Dallas,Sales Representative,80000
+10,Isabella White,29,Female,San Jose,Software Developer,90000
+11,David Harris,41,Male,Austin,Project Manager,100000
+12,Mia Martin,27,Female,Jacksonville,HR Coordinator,58000
+13,Joseph Thompson,36,Male,San Francisco,Data Analyst,88000
+14,Charlotte Garcia,32,Female,Indianapolis,Financial Advisor,82000
+15,Daniel Martinez,44,Male,Columbus,Business Consultant,105000
+16,Amelia Robinson,30,Female,Fort Worth,Psychologist,72000
+17,Christopher Clark,38,Male,Charlotte,Architect,92000
+18,Emily Rodriguez,25,Female,Seattle,Journalist,59000
+19,Andrew Lewis,43,Male,Denver,Operations Manager,98000
+20,Abigail Lee,34,Female,Washington,Research Scientist,86000

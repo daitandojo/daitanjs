@@ -1,0 +1,29 @@
+{
+  "name": "@daitan/pdf",
+  "version": "1.0.0",
+  "description": "A library for creating, merging, and splitting PDF files.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "keywords": [
+    "PDF",
+    "HTML to PDF",
+    "merge PDF",
+    "split PDF",
+    "pdf-lib",
+    "puppeteer",
+    "daitan"
+  ],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {},
+  "dependencies": {
+    "puppeteer": "latest",
+    "pdf-lib": "latest"
+  },
+  "publishConfig": { "access": "public" }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "@daitan/authentication",
+  "version": "1.0.0",
+  "description": "Authentication and user management utilities using Firebase for the Daitan library",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "keywords": [
+    "authentication",
+    "firebase",
+    "user management",
+    "daitan"
+  ],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "uuid": ">=9.0.0"
+  },
+  "dependencies": {
+    "firebase": "latest"
+  },
+  "publishConfig": { "access": "public" }
+}

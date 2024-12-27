@@ -1,0 +1,36 @@
+{
+  "name": "@daitan/office",
+  "version": "1.0.0",
+  "description": "A library for creating and managing Excel, PowerPoint, and Word documents.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "keywords": [
+    "office",
+    "Excel",
+    "PowerPoint",
+    "Word",
+    "documents",
+    "charts",
+    "PptxGenJS",
+    "docx",
+    "ExcelJS",
+    "daitan"
+  ],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {},
+  "dependencies": {
+    "exceljs": "latest",
+    "docx": "latest",
+    "pptxgenjs": "latest",
+    "pptx-parser": "latest",
+    "officegen": "latest",
+    "mammoth": "latest"
+  },
+  "publishConfig": { "access": "public" }
+}

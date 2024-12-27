@@ -1,0 +1,31 @@
+{
+  "name": "@daitan/embeddings",
+  "version": "1.0.0",
+  "description": "A library for creating and managing embeddings with PCA and k-means clustering.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "keywords": [
+    "embeddings",
+    "PCA",
+    "kmeans",
+    "machine learning",
+    "clustering",
+    "daitan"
+  ],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "lodash": "^4.17.21"
+  },
+  "dependencies": {
+    "ml-pca": "latest",
+    "ml-kmeans": "latest",
+    "dotenv": "latest"
+  },
+  "publishConfig": { "access": "public" }
+}
