@@ -1,7 +1,5 @@
 import dotenv from 'dotenv';
 import path from 'path';
-dotenv.config({ path: path.resolve('/home/mark/Repos/.env') });
-import { generateResponse } from './agents/participant';
 
 class Chatbot {
   constructor({

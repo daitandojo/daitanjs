@@ -1,7 +1,5 @@
 import { construct } from '../intelligence/OpenAI';
 import { generateIntelligenceByAPI } from '../intelligenceByAPI';
-import dotenv from 'dotenv';
-dotenv.config({ path: path.resolve('/home/mark/Repos/.env') });
 
 export const translate = async ({ language, body }) => {
   // Helper function to handle different data types

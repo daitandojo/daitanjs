@@ -4,10 +4,30 @@
  */
 
 import nodemailer from 'nodemailer';
-import { config } from 'dotenv';
 import fs from 'fs/promises';
+import dotenv from 'dotenv';
+import path from 'path';
 
-config();
+// Load environment variables
+dotenv.config({ path: path.resolve('/home/mark/Repos/.env') });
+
+// Check for required environment variables and exit if missing
+const requiredEnvVars = [
+    'MAIL_SERVER',
+    'MAIL_PORT',
+    'MAIL_SENDER',
+    'MAIL_PASSWORD',
+    'MAIL_FROM',
+    'MAIL_NAME',
+];
+
+requiredEnvVars.forEach((key) => {
+    if (!process.env[key]) {
+        console.error(`Missing required environment variable: ${key}`);
+        console.error('Ensure all required environment variables are set in /home/mark/Repos/.env');
+        process.exit(1);
+    }
+});
 
 /**
  * @typedef {Object} EmailObject
@@ -51,52 +71,36 @@ const createTransporter = ({ host, port, auth }) => {
  * @param {MailerConfig} [mailerConfig] - Optional custom mailer configuration.
  * @returns {Promise<boolean>} A promise that resolves to true if the email was sent successfully, false otherwise.
  */
-const sendMail = async ({
-  emailObject, mailerConfig
-}) => {
+const sendMail = async (emailObject, mailerConfig) => {
     const config = mailerConfig || {
         host: process.env.MAIL_SERVER,
         port: parseInt(process.env.MAIL_PORT, 10),
         auth: {
             user: process.env.MAIL_SENDER,
-            pass: process.env.MAIL_PASSWORD
-        }
+            pass: process.env.MAIL_PASSWORD,
+        },
     };
 
-    const { 
-        to, cc, bcc, 
-        subject, 
-        html, 
-        attachments, 
-        from = process.env.MAIL_FROM, 
-        name = process.env.MAIL_NAME 
+    const {
+        to,
+        cc,
+        bcc,
+        subject,
+        html,
+        attachments,
+        from = process.env.MAIL_FROM,
+        name = process.env.MAIL_NAME,
     } = emailObject;
-  
-    // console.log("EMAIL OBJECT:", emailObject);
-    // console.log("\nMAILER CONFIGURATION:", config);
-    
-    if (!config.host || !config.port || !config.auth.user || !config.auth.pass || !from) {
-        console.error('Missing required configuration. Cannot send email.');
-        console.error('Current configuration:', config);
-        return false;
-    }
 
-    // console.log("EMAIL OBJECT:")
-    // console.log(emailObject);
-    // console.log("\nMAILER CONFIGURATION:")
-    // console.log(mailerConfig);
-    
-    if (!config.auth.user || !config.auth.pass || !from || !config.host || !config.port) {
-        console.error('Environment not set. Cannot send email.');
+    if (!to || !subject || !html) {
+        console.error('Email object missing required fields: to, subject, or html.');
         return false;
     }
 
     let recipients = to;
-    if (process.env.NODE_ENV === 'development' &&
-        process.env.MAIL_RECIPIENT_OVERRULE
-    ) {
+    if (process.env.NODE_ENV === 'development' && process.env.MAIL_RECIPIENT_OVERRULE) {
         recipients = [process.env.MAIL_RECIPIENT_OVERRULE];
-        console.log(`Development mode: Overruling recipient to ${recipients}`);
+        console.log(`Development mode: Overriding recipient to ${recipients}`);
     }
 
     const transporter = createTransporter(config);
@@ -108,20 +112,12 @@ const sendMail = async ({
         bcc,
         subject,
         html,
-        attachments
+        attachments,
     };
 
     try {
         const info = await transporter.sendMail(mailOptions);
-        console.log(`Email sent: ${info.response} to ${recipients} (${subject})`);
-        // console.log(`
-        //     Sent an email to ${recipients} from ${from}
-        //     Included cc: ${cc ? cc.join(', ') : "N/A"}
-        //     Included bcc: ${bcc ? bcc.join(', ') : "N/A"}
-        //     Subject: ${subject}
-        //     HTML: ${html}
-        //     Attachments: ${attachments ? attachments.map(a => a.filename).join(', ') : "None"}
-        // `);
+        console.log(`Email sent: ${info.response}`);
         return true;
     } catch (error) {
         console.error('Error sending email:', error);
@@ -153,7 +149,7 @@ const createAttachment = async (path, filename) => {
     const content = await readFileAsBuffer(path);
     return {
         filename: filename || path.split('/').pop(),
-        content
+        content,
     };
 };
 
@@ -166,7 +162,7 @@ const sendTestEmail = async (testRecipient) => {
     const testEmail = {
         to: [testRecipient],
         subject: 'Test Email',
-        html: '<h1>This is a test email</h1><p>If you received this, your email configuration is working correctly.</p>',
+        html: '<h1>This is a test email</h1><p>Your email configuration is working correctly.</p>',
     };
 
     return sendMail(testEmail);
@@ -175,5 +171,5 @@ const sendTestEmail = async (testRecipient) => {
 export {
     sendMail,
     createAttachment,
-    sendTestEmail
-}
+    sendTestEmail,
+};

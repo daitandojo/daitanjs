@@ -7,5 +7,6 @@ export * from './jsonstore';
 export * from './knowledge';
 export * from './manipulation';
 export * from './mongodb';
+export * from './models';
 export * from './mysql';
 export * from './validation';

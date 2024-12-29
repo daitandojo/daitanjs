@@ -18,7 +18,7 @@ const defaultConfig = {
  */
 const query = async (config) => {
   
-  console.log(`Query request passed on to: ${config.url}`);
+  if (config.verbose) console.log(`Query request passed on to: ${config.url}`);
   
   const fetchConfig = {
     ...defaultConfig,

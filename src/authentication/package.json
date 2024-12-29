@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/authentication",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Authentication and user management utilities using Firebase for the library",
   "type": "module",
   "exports": {
@@ -20,7 +20,7 @@
     "uuid": ">=9.0.0"
   },
   "dependencies": {
-    "firebase": "latest"
+    "firebase-admin": "latest"
   },
   "publishConfig": {
     "access": "public"
