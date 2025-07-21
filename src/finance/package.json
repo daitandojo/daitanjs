@@ -1,0 +1,48 @@
+{
+  "name": "@daitanjs/finance",
+  "version": "1.0.0",
+  "description": "A library for retrieval of financial data, prices, and currencies.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "build:esm": "babel src --out-dir dist --extensions \".js\" --source-maps inline --env-name esm",
+    "build:cjs": "babel src --out-dir dist --extensions \".js\" --source-maps inline --env-name cjs --out-file-extension .cjs",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "financial data",
+    "prices",
+    "currencies",
+    "web development"
+  ],
+  "author": "Buck Miller <haelpers@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daitandojo/@daitanjs"
+  },
+  "peerDependencies": {
+    "lodash": "^4.17.21"
+  },
+  "dependencies": {
+    "axios": "latest"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

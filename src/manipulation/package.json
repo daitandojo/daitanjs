@@ -1,0 +1,64 @@
+{
+  "name": "@daitanjs/manipulation",
+  "version": "1.0.1",
+  "description": "A library to manipulate JSON, strings, and dates.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist/**/*",
+    "src/**/*"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "build:esm": "babel src --out-dir dist --extensions \".js\" --source-maps inline --env-name esm",
+    "build:cjs": "babel src --out-dir dist --extensions \".js\" --source-maps inline --env-name cjs --out-file-extension .cjs",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "manipulation",
+    "JSON",
+    "strings",
+    "dates",
+    "utilities"
+  ],
+  "author": "Buck Miller <haelpers@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daitandojo/@daitanjs",
+    "directory": "packages/manipulation"
+  },
+  "peerDependencies": {},
+  "dependencies": {
+    "@daitanjs/development": "^1.0.0",
+    "@daitanjs/error": "^1.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.7",
+    "@babel/core": "^7.24.7",
+    "@babel/plugin-transform-runtime": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "rimraf": "^5.0.7"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/daitandojo/@daitanjs/tree/main/packages/manipulation#readme"
+}

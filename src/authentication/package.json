@@ -1,0 +1,50 @@
+{
+  "name": "@daitanjs/authentication",
+  "version": "1.0.1",
+  "description": "Authentication and user management utilities using Firebase for the library",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build:esm": "babel src --out-dir dist --extensions \".js\" --source-maps inline --env-name esm",
+    "build:cjs": "babel src --out-dir dist --extensions \".js\" --source-maps inline --env-name cjs --out-file-extension .cjs",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "prepare": "npm run build"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "keywords": [
+    "authentication",
+    "firebase",
+    "user management"
+  ],
+  "author": "Buck Miller <haelpers@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daitandojo/@daitanjs"
+  },
+  "peerDependencies": {
+    "uuid": ">=9.0.0"
+  },
+  "dependencies": {
+    "firebase-admin": "^13.4.0",
+    "googleapis": "latest",
+    "@daitanjs/development": "^1.0.0",
+    "@daitanjs/error": "^1.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,72 @@
+# Exclude everything that's not required
+node_modules/
+**/node_modules/
+logs/
+*.log
+*.tmp
+*.temp
+*.bak
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.env
+.env.*
+
+# Developer files
+.babelrc
+.editorconfig
+.gitignore
+.npmignore
+.nvmrc
+.prettierrc
+commitlint.config.js
+createInstruction.txt
+Dockerfile
+esbuild.config.js
+eslint.config.js
+lint-staged.config.js
+minimizePackageJson.js
+generatePackageJson.js
+sourcePack.js
+sourcePack.txt
+updateWorkspaces.js
+
+# Usecase modules
+usecase.js
+
+# Exclude build tools and scripts
+esbuild.config.js
+**/esbuild.config.js
+minimizePackageJson.js
+
+# Exclude coverage reports
+coverage/
+**/coverage/
+
+# Exclude Git files
+.git/
+.gitignore
+
+# Exclude tests and documentation (if not needed in the package)
+tests/
+**/tests/
+test/
+**/test/
+*.spec.js
+*.test.js
+*.md (optional, unless README.md is required)
+
+# Exclude binaries
+*.jpg
+*.jpeg
+*.gif
+*.png
+*.wav
+*.pdf
+*.docx
+*.xlsx
+*.pptx
+*.mp3
+*.mp4
+*.mov

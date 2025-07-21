@@ -1,0 +1,46 @@
+{
+  "name": "@daitanjs/security",
+  "version": "1.0.0",
+  "description": "A lightweight library for token generation and verification.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "build:esm": "babel src --out-dir dist --extensions \".js\" --source-maps inline --env-name esm",
+    "build:cjs": "babel src --out-dir dist --extensions \".js\" --source-maps inline --env-name cjs --out-file-extension .cjs",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "security",
+    "token",
+    "authentication",
+    "validation"
+  ],
+  "author": "Buck Miller <haelpers@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daitandojo/@daitanjs"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2",
+    "uuid": "^11.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

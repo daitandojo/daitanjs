@@ -1,0 +1,74 @@
+{
+  "name": "@daitanjs/cli",
+  "version": "1.0.0",
+  "description": "A comprehensive command-line interface for interacting with and managing the DaitanJS ecosystem.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "bin": {
+    "daitan": "./dist/index.js"
+  },
+  "files": [
+    "dist/**/*",
+    "src/**/*"
+  ],
+"scripts": {
+    "clean": "rimraf dist",
+    "build:esm": "babel src --out-dir dist --extensions \".js\" --source-maps inline --env-name esm",
+    "build:cjs": "babel src --out-dir dist --extensions \".js\" --source-maps inline --env-name cjs --out-file-extension .cjs",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "daitanjs",
+    "cli",
+    "dev-tools",
+    "scaffolding",
+    "ai",
+    "llm",
+    "rag",
+    "management"
+  ],
+  "author": "Buck Miller <haelpers@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daitandojo/@daitanjs",
+    "directory": "packages/cli"
+  },
+  "dependencies": {
+    "@bull-board/api": "^5.17.1",
+    "@bull-board/express": "^5.17.1",
+    "@daitanjs/config": "file:../config",
+    "@daitanjs/development": "file:../development",
+    "@daitanjs/error": "file:../error",
+    "@daitanjs/geo": "file:../geo",
+    "@daitanjs/images": "file:../images",
+    "@daitanjs/intelligence": "file:../intelligence",
+    "@daitanjs/queues": "file:../queues",
+    "@daitanjs/security": "file:../security",
+    "@daitanjs/speech": "file:../speech",
+    "@daitanjs/utilities": "file:../utilities",
+    "@langchain/community": "^0.3.45",
+    "@langchain/core": "^0.3.57",
+    "bullmq": "^5.8.2",
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "express": "^4.19.2",
+    "inquirer": "^9.2.22",
+    "ora": "^8.0.1",
+    "shelljs": "^0.8.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.7",
+    "@babel/core": "^7.24.7",
+    "@babel/plugin-transform-runtime": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "rimraf": "^5.0.7"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/daitandojo/@daitanjs/tree/main/packages/cli#readme"
+}

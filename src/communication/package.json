@@ -1,0 +1,63 @@
+{
+  "name": "@daitanjs/communication",
+  "version": "1.0.0",
+  "description": "An email and SMS library with background job processing.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./email": {
+      "import": "./dist/email/index.js",
+      "require": "./dist/email/index.cjs"
+    },
+    "./sms": {
+      "import": "./dist/sms/index.js",
+      "require": "./dist/sms/index.cjs"
+    }
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build:esm": "babel src --out-dir dist --extensions \".js\" --source-maps inline --env-name esm",
+    "build:cjs": "babel src --out-dir dist --extensions \".js\" --source-maps inline --env-name cjs --out-file-extension .cjs",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "prepare": "npm run build"
+  },
+  "files": [
+    "dist/**/*",
+    "src/**/*"
+  ],
+  "keywords": [
+    "Email",
+    "SMS",
+    "queues",
+    "BullMQ"
+  ],
+  "author": "Buck Miller <haelpers@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daitandojo/@daitanjs"
+  },
+  "peerDependencies": {
+    "uuid": ">=9.0.0"
+  },
+  "dependencies": {
+    "@daitanjs/config": "^1.0.0",
+    "@daitanjs/development": "^1.0.0",
+    "@daitanjs/error": "^1.0.1",
+    "@daitanjs/queues": "^1.0.0",
+    "@daitanjs/utilities": "^1.0.0",
+    "nodemailer": "latest",
+    "twilio": "latest"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

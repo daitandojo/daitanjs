@@ -1,0 +1,101 @@
+# DaitanJS Intelligence Environment Variables
+
+# -------------------------------------------
+
+# This file serves as a comprehensive template for configuring the @daitanjs/intelligence package.
+
+# Copy this to a `.env` file in your project root and fill in the required values.
+
+# --- Core LLM Provider Configuration ---
+
+# You only need to configure the provider(s) you intend to use.
+
+# Example for OpenAI
+
+OPENAI_API_KEY="your_openai_api_key"
+LLM_PROVIDER="openai" # The default provider if none is specified in a call.
+LLM_MODEL="gpt-4o-mini" # The default model for the default provider.
+
+# Example for Anthropic
+
+ANTHROPIC_API_KEY="your_anthropic_api_key"
+
+# Example for Groq
+
+GROQ_API_KEY="your_groq_api_key"
+
+# --- LangSmith Tracing & Observability (Highly Recommended for Agents) ---
+
+# For debugging and monitoring complex agentic workflows.
+
+LANGCHAIN_TRACING_V2="true"
+LANGCHAIN_API_KEY="your_langsmith_api_key"
+LANGCHAIN_PROJECT="Your-DaitanJS-Project-Name" # Optional, defaults to DaitanJS-Project
+
+# LANGCHAIN_ENDPOINT="https://api.smith.langchain.com" # Optional
+
+# --- RAG (Retrieval-Augmented Generation) Configuration ---
+
+# For using persistent vector stores with ChromaDB.
+
+CHROMA_HOST="localhost" # Default host for the ChromaDB server.
+CHROMA_PORT="8000" # Default port for the ChromaDB server.
+RAG_DEFAULT_COLLECTION_NAME="daitan_rag_default_store" # Default collection for embedding documents.
+
+# --- Web Search Tool Configuration ---
+
+# Required for `webSearchTool` and the `automatedResearchAgent`.
+
+# Ensure @daitanjs/web is configured with these if using that module's googleSearch.
+
+# You can get these from the Google Cloud Console and Programmable Search Engine control panel.
+
+GOOGLE_CSE_ID="your_google_custom_search_engine_id"
+GOOGLE_API_KEY="your_google_api_key_for_search"
+
+# --- Caching Configuration ---
+
+# Improves performance and reduces costs by caching LLM responses and embeddings.
+
+LLM_USE_CACHE="true" # Set to "false" to disable LLM response caching.
+LLM_CACHE_CAPACITY="200" # Number of LLM responses to cache.
+EMBEDDING_USE_CACHE="true" # Set to "false" to disable embedding caching.
+EMBEDDING_CACHE_CAPACITY="1000" # Number of embeddings to cache.
+
+# --- Agent & Workflow Configuration ---
+
+# Fine-tune the behavior of agentic systems.
+
+AGENT_MAX_ITERATIONS="15" # Default max iterations for tool-calling agents to prevent infinite loops.
+
+# DEFAULT_EXPERT_PROFILE="FAST_TASKER" # Sets the global default expert profile for LLM calls.
+
+# --- Logging & Debugging ---
+
+# Controls the verbosity of the DaitanJS internal logger.
+
+# Options: 'debug', 'info', 'warn', 'error'
+
+LOG_LEVEL="info"
+
+# --- Fine-grained Debug Flags ---
+
+# Uncomment specific flags to enable verbose logging for different modules.
+
+# This is useful for deep debugging without flooding the console.
+
+# DEBUG_INTELLIGENCE=true # General high-level intelligence operations.
+
+# DEBUG_LLM_EXECUTOR=true # Low-level LLM call, retry, and self-correction logic.
+
+# DEBUG_AGENT=true # Tool-calling agent execution traces.
+
+# DEBUG_LANGGRAPH=true # LangGraph node and edge execution details.
+
+# RAG_VERBOSE=true # General RAG operations (retrieval, chat).
+
+# RAG_EMBED_VERBOSE=true # Document embedding pipeline.
+
+# RAG_RETRIEVAL_VERBOSE=true # Retrieval and re-ranking steps.
+
+# RAG_METADATA_VERBOSE=true # AI-powered metadata generation.
