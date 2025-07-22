@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/manipulation",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A library to manipulate JSON, strings, and dates.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -23,7 +23,7 @@
     "dist"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified for @daitanjs/manipulation\" && exit 0"
   },
   "keywords": [
     "manipulation",

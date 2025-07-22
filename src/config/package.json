@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/config",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A foundational package for managing environment variables and application configuration for the DaitanJS ecosystem.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -33,7 +33,7 @@
     "dist"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified for @daitanjs/config\" && exit 0"
   },
   "keywords": [
     "daitanjs",

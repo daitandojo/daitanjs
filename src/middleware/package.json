@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/middleware",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Reusable Next.js middleware for the DaitanJS ecosystem.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -23,7 +23,7 @@
     "dist"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified for @daitanjs/middleware\" && exit 0"
   },
   "keywords": [
     "daitanjs",

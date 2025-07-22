@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/web",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "An intelligent library for robust web scraping, content extraction, and Google Custom Search, featuring automated strategy selection and a clean text output mode.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -23,7 +23,7 @@
     "dist"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified for @daitanjs/web\" && exit 0"
   },
   "keywords": [
     "web scraping",

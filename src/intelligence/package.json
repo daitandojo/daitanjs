@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/intelligence",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A modular library for advanced LLM orchestration, stateful RAG, multi-step agentic workflows, and tool use, built on LangChain.js.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -160,7 +160,7 @@
     }
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified for @daitanjs/intelligence\" && exit 0"
   },
   "files": [
     "dist"

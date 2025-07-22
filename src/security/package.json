@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/security",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A lightweight library for token generation and verification.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -17,7 +17,7 @@
     "dist"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified for @daitanjs/security\" && exit 0"
   },
   "keywords": [
     "security",

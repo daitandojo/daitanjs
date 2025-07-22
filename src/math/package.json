@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/math",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A data manipulation and analysis library, providing a DataFrame API powered by Danfo.js for the DaitanJS ecosystem.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -23,7 +23,7 @@
     "dist"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified for @daitanjs/math\" && exit 0"
   },
   "keywords": [
     "daitanjs",

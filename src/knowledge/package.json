@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/knowledge",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A library providing structured knowledge about languages, countries, weekdays, and other world information.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -83,7 +83,7 @@
     "dist"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified for @daitanjs/knowledge\" && exit 0"
   },
   "keywords": [
     "knowledge",

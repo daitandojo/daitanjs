@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/html",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A utility library for generating reusable and customizable HTML components.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -23,7 +23,7 @@
     "dist"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified for @daitanjs/html\" && exit 0"
   },
   "keywords": [
     "html",
