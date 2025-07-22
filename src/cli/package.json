@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/cli",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "A comprehensive command-line interface for interacting with and managing the DaitanJS ecosystem.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -9,16 +9,10 @@
     "daitan": "./dist/index.js"
   },
   "files": [
-    "dist/**/*",
-    "src/**/*"
+    "dist"
   ],
   "scripts": {
-    "clean": "rimraf dist",
-    "build:esm": "babel src --out-dir dist --extensions \".js\" --source-maps inline --env-name esm",
-    "build:cjs": "babel src --out-dir dist --extensions \".js\" --source-maps inline --env-name cjs --out-file-extension .cjs",
-    "build": "npm run clean && npm run build:esm && npm run build:cjs",
-    "test": "echo \"Error: no test specified\" && exit 0",
-    "prepare": "npm run build"
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "keywords": [
     "daitanjs",
@@ -40,16 +34,16 @@
   "dependencies": {
     "@bull-board/api": "^5.17.1",
     "@bull-board/express": "^5.17.1",
-    "@daitanjs/config": "file:../config",
-    "@daitanjs/development": "file:../development",
-    "@daitanjs/error": "file:../error",
-    "@daitanjs/geo": "file:../geo",
-    "@daitanjs/images": "file:../images",
-    "@daitanjs/intelligence": "file:../intelligence",
-    "@daitanjs/queues": "file:../queues",
-    "@daitanjs/security": "file:../security",
-    "@daitanjs/speech": "file:../speech",
-    "@daitanjs/utilities": "file:../utilities",
+    "@daitanjs/config": "^1.0.0",
+    "@daitanjs/development": "^1.0.0",
+    "@daitanjs/error": "^1.0.1",
+    "@daitanjs/geo": "^1.0.1",
+    "@daitanjs/images": "^1.0.1",
+    "@daitanjs/intelligence": "^1.2.0",
+    "@daitanjs/queues": "^1.0.0",
+    "@daitanjs/security": "^1.0.0",
+    "@daitanjs/speech": "^1.0.1",
+    "@daitanjs/utilities": "^1.0.0",
     "@langchain/community": "^0.3.45",
     "@langchain/core": "^0.3.57",
     "bullmq": "^5.8.2",

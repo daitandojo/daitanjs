@@ -14,12 +14,11 @@
     }
   },
   "files": [
-    "dist/**/*"
+    "dist"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0"
   },
-
   "keywords": [
     "security",
     "token",

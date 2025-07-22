@@ -1,5 +1,5 @@
 {
-  "name": "daitanjs",
+  "name": "daitanjs-monorepo",
   "version": "1.0.0",
   "private": true,
   "description": "Monorepo for all @daitanjs scoped libraries",
@@ -7,31 +7,23 @@
   "workspaces": [
     "src/*"
   ],
-  "scripts": {
+"scripts": {
     "build": "node esbuild.config.js",
+    "build-watch": "chokidar 'src/*/src/**/*.js' --initial --verbose -c 'npm run build'",
     "clean": "rimraf src/*/dist",
     "test": "jest",
-    "rebuild-all": "npm run clean && npm install && npm run build",
-    "build-watch": "npm run build && chokidar 'src/**/*' --ignore 'src/**/dist/**' --ignore 'src/node_modules/**' --ignore 'src/package.json' --debounce 5000 -c 'npm run build'"
+    "rebuild": "npm run clean && npm install && npm run build"
   },
   "author": "Buck Miller",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.26.0",
-    "@babel/plugin-transform-runtime": "^7.25.9",
     "@babel/preset-env": "^7.26.0",
     "babel-jest": "^29.7.0",
     "chokidar-cli": "^3.0.0",
-    "cli-progress": "^3.12.0",
-    "esbuild": "^0.25.8",
+    "esbuild": "^0.23.0",
     "glob": "^10.4.5",
     "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
-    "next": "^14.2.3",
     "rimraf": "^5.0.7"
-  },
-  "dependencies": {
-    "ignore": "^7.0.0",
-    "node-fetch": "^3.3.2"
   }
 }

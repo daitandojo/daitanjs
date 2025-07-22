@@ -5,7 +5,7 @@ import path from 'path';
 import { glob } from 'glob';
 
 const ROOT_DIR = process.cwd();
-const SCRIPT_VERSION = '4.2.0-final'; // Version for this build script
+const SCRIPT_VERSION = '4.3.0-final'; // Version for this build script
 
 async function getPackages() {
   const rootPkgPath = path.join(ROOT_DIR, 'package.json');
@@ -31,11 +31,19 @@ async function buildPackage(pkgPath) {
       return;
     }
 
-    // THIS IS THE CRITICAL FIX: Mark dependencies as external
+    // THE DEFINITIVE FIX:
+    // Mark ALL dependencies from node_modules as external.
+    // This prevents esbuild from bundling them and encountering issues
+    // with Node.js built-in modules like 'os', 'util', 'fs', etc.
     const external = [
       ...Object.keys(pkg.dependencies || {}),
       ...Object.keys(pkg.peerDependencies || {}),
     ];
+    
+    // Add a wildcard for any transitive dependencies.
+    // This tells esbuild: "If you see an import that isn't a relative path,
+    // leave it as an import/require statement. Do not bundle it."
+    external.push('!./*', '!../../*'); // Esbuild needs patterns for non-external
 
     const entryPoint = path.join(pkgPath, 'src', 'index.js');
     if (!(await fs.stat(entryPoint).catch(() => false))) {
@@ -48,7 +56,7 @@ async function buildPackage(pkgPath) {
       bundle: true,
       platform: 'node',
       sourcemap: true,
-      external,
+      packages: 'external', // Simplified and powerful way to mark all dependencies as external
     };
 
     const buildPromises = [];
@@ -92,9 +100,6 @@ async function main() {
     const packages = await getPackages();
     console.log(`[Info] Found ${packages.length} workspaces to build.`);
 
-    // NOTE: This simple script builds packages in parallel. 
-    // If you have inter-dependencies *within your monorepo* that require a specific build order,
-    // you would need a more complex topological sort here. For now, this is much more robust.
     await Promise.all(packages.map(buildPackage));
 
     const duration = (Date.now() - startTime) / 1000;

@@ -164,8 +164,7 @@
   },
 
   "files": [
-    "dist/**/*",
-    "src/**/*"
+    "dist"
   ],
   "keywords": [
     "LLM",
