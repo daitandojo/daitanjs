@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/senses",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "description": "A library for AI-powered image generation and analysis using OpenAI.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -54,7 +54,6 @@
     "@daitanjs/config": "^1.0.0",
     "@daitanjs/development": "^1.0.0",
     "@daitanjs/error": "^1.0.1",
-    "@daitanjs/intelligence": "^1.2.0",
     "@daitanjs/apiqueries": "^1.0.3",
     "@daitanjs/validation": "^1.0.1",
     "@langchain/community": "^0.3.45",
