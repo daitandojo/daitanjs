@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/data",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "Data handling utilities for caching, CSV processing, and database management.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -9,18 +9,18 @@
   "sideEffects": false,
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
+    },
+    "./caching": {
+      "types": "./dist/caching/index.d.ts",
+      "import": "./dist/caching/index.js",
+      "require": "./dist/caching/index.cjs"
     }
   },
   "scripts": {
-    "clean": "rimraf dist",
-    "build:esm": "babel src --out-dir dist --extensions \".js\" --source-maps inline --env-name esm",
-    "build:cjs": "babel src --out-dir dist --extensions \".js\" --source-maps inline --env-name cjs --out-file-extension .cjs",
-    "build": "npm run clean && npm run build:esm && npm run build:cjs",
-    "test": "echo \"Error: no test specified\" && exit 0",
-    "prepare": "npm run build"
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "files": [
     "dist/**/*"

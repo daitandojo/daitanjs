@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/config",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "A foundational package for managing environment variables and application configuration for the DaitanJS ecosystem.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -34,12 +34,7 @@
     "src/**/*"
   ],
   "scripts": {
-    "clean": "rimraf dist",
-    "build:esm": "babel src --out-dir dist --extensions \".js\" --source-maps inline --env-name esm",
-    "build:cjs": "babel src --out-dir dist --extensions \".js\" --source-maps inline --env-name cjs --out-file-extension .cjs",
-    "build": "npm run clean && npm run build:esm && npm run build:cjs",
-    "test": "echo \"Error: no test specified\" && exit 0",
-    "prepare": "npm run build"
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "keywords": [
     "daitanjs",

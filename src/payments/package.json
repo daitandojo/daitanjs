@@ -22,15 +22,10 @@
   "files": [
     "dist/**/*",
     "src/**/*"
-  ],
-  "scripts": {
-    "clean": "rimraf dist",
-    "build:esm": "babel src --out-dir dist --extensions \".js\" --source-maps inline --env-name esm",
-    "build:cjs": "babel src --out-dir dist --extensions \".js\" --source-maps inline --env-name cjs --out-file-extension .cjs",
-    "build": "npm run clean && npm run build:esm && npm run build:cjs",
-    "test": "echo \"Error: no test specified\" && exit 0",
-    "prepare": "npm run build"
+  ],  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
+
   "keywords": [
     "payments",
     "transactions",
