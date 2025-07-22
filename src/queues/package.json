@@ -1,7 +1,7 @@
 {
-  "name": "@daitanjs/pdf",
-  "version": "1.0.1",
-  "description": "A library for creating, merging, and splitting PDF files using puppeteer and pdf-lib.",
+  "name": "@daitanjs/queues",
+  "version": "1.0.0",
+  "description": "A library for background job processing using BullMQ and Redis.",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -32,27 +32,27 @@
     "prepare": "npm run build"
   },
   "keywords": [
-    "PDF",
-    "HTML to PDF",
-    "merge PDF",
-    "split PDF",
-    "pdf-lib",
-    "puppeteer",
-    "document generation"
+    "daitanjs",
+    "queues",
+    "jobs",
+    "background processing",
+    "bullmq",
+    "redis"
   ],
   "author": "Buck Miller <haelpers@gmail.com>",
   "license": "ISC",
   "repository": {
     "type": "git",
     "url": "https://github.com/daitandojo/@daitanjs",
-    "directory": "packages/pdf"
+    "directory": "packages/queues"
   },
-  "peerDependencies": {},
   "dependencies": {
+    "@daitanjs/config": "^1.0.0",
     "@daitanjs/development": "^1.0.0",
     "@daitanjs/error": "^1.0.1",
-    "puppeteer": "^22.10.0",
-    "pdf-lib": "^1.17.1"
+    "bullmq": "^5.8.2",
+    "ioredis": "^5.4.1",
+    "nodemailer": "^7.0.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.24.7",
@@ -64,5 +64,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://github.com/daitandojo/@daitanjs/tree/main/packages/pdf#readme"
+  "homepage": "https://github.com/daitandojo/@daitanjs/tree/main/packages/queues#readme"
 }
