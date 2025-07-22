@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/validation",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A library providing comprehensive validation utilities for various data types and formats.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -25,7 +25,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0"
   },
-
   "keywords": [
     "validation",
     "data validation",

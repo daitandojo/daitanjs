@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/cli",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A comprehensive command-line interface for interacting with and managing the DaitanJS ecosystem.",
   "type": "module",
   "main": "./dist/index.cjs",

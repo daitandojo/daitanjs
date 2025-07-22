@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/utilities",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A utility library for retry mechanisms, batch processing, and error handling.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -16,7 +16,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0"
   },
-
   "files": [
     "dist"
   ],
