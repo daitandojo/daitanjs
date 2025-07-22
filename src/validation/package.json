@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/validation",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A library providing comprehensive validation utilities for various data types and formats.",
   "type": "module",
   "main": "./dist/index.cjs",

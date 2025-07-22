@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/training",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A library for training custom machine learning models using TensorFlow.js.",
   "type": "module",
   "main": "./dist/index.cjs",

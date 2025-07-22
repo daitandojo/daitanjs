@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/error",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A library for handling and defining custom DaitanJS error types with logging integration.",
   "type": "module",
   "main": "./dist/index.cjs",

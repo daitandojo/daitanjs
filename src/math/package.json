@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/math",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A data manipulation and analysis library, providing a DataFrame API powered by Danfo.js for the DaitanJS ecosystem.",
   "type": "module",
   "main": "./dist/index.cjs",

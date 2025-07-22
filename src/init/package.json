@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/init",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A core library for initializing and orchestrating the DaitanJS ecosystem.",
   "type": "module",
   "main": "./dist/index.cjs",

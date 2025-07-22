@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A comprehensive command-line interface for interacting with and managing the DaitanJS ecosystem.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -12,7 +12,7 @@
     "dist/**/*",
     "src/**/*"
   ],
-"scripts": {
+  "scripts": {
     "clean": "rimraf dist",
     "build:esm": "babel src --out-dir dist --extensions \".js\" --source-maps inline --env-name esm",
     "build:cjs": "babel src --out-dir dist --extensions \".js\" --source-maps inline --env-name cjs --out-file-extension .cjs",

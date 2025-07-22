@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/knowledge",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A library providing structured knowledge about languages, countries, weekdays, and other world information.",
   "type": "module",
   "main": "./dist/index.cjs",

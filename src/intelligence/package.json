@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/intelligence",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A modular library for advanced LLM orchestration, stateful RAG, multi-step agentic workflows, and tool use, built on LangChain.js.",
   "type": "module",
   "main": "./dist/index.cjs",

@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A foundational package for managing environment variables and application configuration for the DaitanJS ecosystem.",
   "type": "module",
   "main": "./dist/index.cjs",

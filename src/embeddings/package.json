@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/embeddings",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A library for creating and managing embeddings with PCA and k-means clustering.",
   "type": "module",
   "main": "./dist/index.cjs",
