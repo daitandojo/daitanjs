@@ -1,0 +1,4 @@
+# Ignore source files, tests, and local config
+/src
+/test.js
+/.claude

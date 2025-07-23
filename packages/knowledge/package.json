@@ -1,0 +1,116 @@
+{
+  "name": "@daitanjs/knowledge",
+  "version": "1.0.5",
+  "description": "A library providing structured knowledge about languages, countries, weekdays, and other world information.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./countries": {
+      "import": {
+        "types": "./dist/countries/index.d.ts",
+        "default": "./dist/countries/index.js"
+      },
+      "require": {
+        "types": "./dist/countries/index.d.ts",
+        "default": "./dist/countries/index.cjs"
+      }
+    },
+    "./education": {
+      "import": {
+        "types": "./dist/education/index.d.ts",
+        "default": "./dist/education/index.js"
+      },
+      "require": {
+        "types": "./dist/education/index.d.ts",
+        "default": "./dist/education/index.cjs"
+      }
+    },
+    "./initials": {
+      "import": {
+        "types": "./dist/initials/index.d.ts",
+        "default": "./dist/initials/index.js"
+      },
+      "require": {
+        "types": "./dist/initials/index.d.ts",
+        "default": "./dist/initials/index.cjs"
+      }
+    },
+    "./languages": {
+      "import": {
+        "types": "./dist/languages/index.d.ts",
+        "default": "./dist/languages/index.js"
+      },
+      "require": {
+        "types": "./dist/languages/index.d.ts",
+        "default": "./dist/languages/index.cjs"
+      }
+    },
+    "./translations": {
+      "import": {
+        "types": "./dist/translations/index.d.ts",
+        "default": "./dist/translations/index.js"
+      },
+      "require": {
+        "types": "./dist/translations/index.d.ts",
+        "default": "./dist/translations/index.cjs"
+      }
+    },
+    "./wiki": {
+      "import": {
+        "types": "./dist/wiki/index.d.ts",
+        "default": "./dist/wiki/index.js"
+      },
+      "require": {
+        "types": "./dist/wiki/index.d.ts",
+        "default": "./dist/wiki/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "babel src --out-dir dist --extensions \".js\" --source-maps inline",
+    "watch": "babel src --out-dir dist --extensions \".js\" --source-maps inline --watch",
+    "test": "echo \"Error: no test specified for @daitanjs/knowledge\" && exit 0"
+  },
+  "keywords": [
+    "knowledge",
+    "languages",
+    "countries",
+    "weekdays",
+    "education levels",
+    "data utilities",
+    "world information",
+    "translations"
+  ],
+  "author": "Buck Miller <haelpers@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daitandojo/@daitanjs",
+    "directory": "packages/knowledge"
+  },
+  "peerDependencies": {},
+  "dependencies": {
+    "@daitanjs/development": "^1.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/daitandojo/@daitanjs/tree/main/packages/knowledge#readme"
+}

@@ -1,0 +1,64 @@
+{
+  "name": "@daitanjs/config",
+  "version": "1.0.5",
+  "description": "A foundational package for managing environment variables and application configuration for the DaitanJS ecosystem.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./configManager": {
+      "import": {
+        "types": "./dist/configManager.d.ts",
+        "default": "./dist/configManager.js"
+      },
+      "require": {
+        "types": "./dist/configManager.d.ts",
+        "default": "./dist/configManager.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "babel src --out-dir dist --extensions \".js\" --source-maps inline",
+    "watch": "babel src --out-dir dist --extensions \".js\" --source-maps inline --watch",
+    "test": "echo \"Error: no test specified for @daitanjs/config\" && exit 0"
+  },
+  "keywords": [
+    "daitanjs",
+    "config",
+    "configuration",
+    "environment variables",
+    "env"
+  ],
+  "author": "Buck Miller <haelpers@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daitandojo/@daitanjs",
+    "directory": "packages/config"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.27.6",
+    "@daitanjs/development": "^1.0.0",
+    "@daitanjs/error": "^1.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/daitandojo/@daitanjs/tree/main/packages/config#readme"
+}

@@ -1,0 +1,58 @@
+{
+  "name": "@daitanjs/html",
+  "version": "1.0.5",
+  "description": "A utility library for generating reusable and customizable HTML components.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "babel src --out-dir dist --extensions \".js\" --source-maps inline",
+    "watch": "babel src --out-dir dist --extensions \".js\" --source-maps inline --watch",
+    "test": "echo \"Error: no test specified for @daitanjs/html\" && exit 0"
+  },
+  "keywords": [
+    "html",
+    "components",
+    "utility",
+    "custom styles",
+    "web development",
+    "email html"
+  ],
+  "author": "Buck Miller <haelpers@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daitandojo/@daitanjs",
+    "directory": "packages/html"
+  },
+  "peerDependencies": {
+    "lodash": "^4.17.21"
+  },
+  "dependencies": {
+    "@daitanjs/utilities": "^1.0.0",
+    "@daitanjs/development": "^1.0.0",
+    "@daitanjs/error": "^1.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/daitandojo/@daitanjs/tree/main/packages/html#readme"
+}

@@ -1,0 +1,58 @@
+{
+  "name": "@daitanjs/queues",
+  "version": "1.0.4",
+  "description": "A library for background job processing using BullMQ and Redis.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "babel src --out-dir dist --extensions \".js\" --source-maps inline",
+    "watch": "babel src --out-dir dist --extensions \".js\" --source-maps inline --watch",
+    "test": "echo \"Error: no test specified for @daitanjs/queues\" && exit 0"
+  },
+  "keywords": [
+    "daitanjs",
+    "queues",
+    "jobs",
+    "background processing",
+    "bullmq",
+    "redis"
+  ],
+  "author": "Buck Miller <haelpers@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daitandojo/@daitanjs",
+    "directory": "packages/queues"
+  },
+  "dependencies": {
+    "@daitanjs/config": "^1.0.0",
+    "@daitanjs/development": "^1.0.0",
+    "@daitanjs/error": "^1.0.1",
+    "bullmq": "^5.8.2",
+    "ioredis": "^5.4.1",
+    "nodemailer": "^7.0.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/daitandojo/@daitanjs/tree/main/packages/queues#readme"
+}

@@ -1,0 +1,63 @@
+{
+  "name": "@daitanjs/validation",
+  "version": "1.0.5",
+  "description": "A library providing comprehensive validation utilities for various data types and formats.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "babel src --out-dir dist --extensions \".js\" --source-maps inline",
+    "watch": "babel src --out-dir dist --extensions \".js\" --source-maps inline --watch",
+    "test": "echo \"Error: no test specified for @daitanjs/validation\" && exit 0"
+  },
+  "keywords": [
+    "validation",
+    "data validation",
+    "utilities",
+    "email validation",
+    "JSON validation",
+    "schema",
+    "format checking"
+  ],
+  "author": "Buck Miller <haelpers@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daitandojo/@daitanjs",
+    "directory": "packages/validation"
+  },
+  "peerDependencies": {},
+  "dependencies": {
+    "@daitanjs/development": "^1.0.0",
+    "@daitanjs/error": "^1.0.1",
+    "@daitanjs/manipulation": "^1.0.1",
+    "@daitanjs/utilities": "^1.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/daitandojo/@daitanjs/tree/main/packages/validation#readme",
+  "jest": {
+    "transform": {
+      "^.+\\\\.jsx?$": "babel-jest"
+    }
+  }
+}

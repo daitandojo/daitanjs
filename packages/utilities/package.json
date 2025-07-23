@@ -1,0 +1,42 @@
+{
+  "name": "@daitanjs/utilities",
+  "version": "1.0.4",
+  "description": "A utility library for retry mechanisms, batch processing, and error handling.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "babel src --out-dir dist --extensions \".js\" --source-maps inline",
+    "watch": "babel src --out-dir dist --extensions \".js\" --source-maps inline --watch",
+    "test": "echo \"Error: no test specified for @daitanjs/utilities\" && exit 0"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "utilities",
+    "retry",
+    "batch processing",
+    "error handling"
+  ],
+  "author": "Buck Miller <haelpers@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daitandojo/@daitanjs"
+  },
+  "peerDependencies": {},
+  "dependencies": {},
+  "publishConfig": {
+    "access": "public"
+  }
+}

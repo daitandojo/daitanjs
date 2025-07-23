@@ -1,0 +1,67 @@
+{
+  "name": "@daitanjs/data",
+  "version": "1.0.5",
+  "description": "Data handling utilities for caching, CSV processing, and database management.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./caching": {
+      "types": "./dist/caching/index.d.ts",
+      "import": "./dist/caching/index.js",
+      "require": "./dist/caching/index.cjs"
+    }
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "babel src --out-dir dist --extensions \".js\" --source-maps inline",
+    "watch": "babel src --out-dir dist --extensions \".js\" --source-maps inline --watch",
+    "test": "echo \"Error: no test specified for @daitanjs/data\" && exit 0"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "data",
+    "caching",
+    "csv",
+    "database",
+    "mongodb",
+    "mongoose"
+  ],
+  "author": "Buck Miller <haelpers@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daitandojo/@daitanjs"
+  },
+  "peerDependencies": {
+    "lodash": "^4.17.21",
+    "uuid": ">=9.0.0"
+  },
+  "dependencies": {
+    "@daitanjs/development": "^1.0.0",
+    "@daitanjs/error": "^1.0.1",
+    "@daitanjs/utilities": "^1.0.0",
+    "aws4": "^1.13.2",
+    "axios": "latest",
+    "csv-parse": "latest",
+    "csv-stringify": "latest",
+    "mongodb": "latest",
+    "mongoose": "latest",
+    "mysql2": "^3.10.0",
+    "node-cache": "latest",
+    "passport-local-mongoose": "latest",
+    "winston": "latest"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

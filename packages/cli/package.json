@@ -1,0 +1,64 @@
+{
+  "name": "@daitanjs/cli",
+  "version": "1.0.4",
+  "description": "A comprehensive command-line interface for interacting with and managing the DaitanJS ecosystem.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "bin": {
+    "daitan": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "babel src --out-dir dist --extensions \".js\" --source-maps inline",
+    "watch": "babel src --out-dir dist --extensions \".js\" --source-maps inline --watch",
+    "test": "echo \"Error: no test specified for @daitanjs/cli\" && exit 0"
+  },
+  "keywords": [
+    "daitanjs",
+    "cli",
+    "dev-tools",
+    "scaffolding",
+    "ai",
+    "llm",
+    "rag",
+    "management"
+  ],
+  "author": "Buck Miller <haelpers@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daitandojo/@daitanjs",
+    "directory": "packages/cli"
+  },
+  "dependencies": {
+    "@bull-board/api": "^5.17.1",
+    "@bull-board/express": "^5.17.1",
+    "@daitanjs/config": "^1.0.0",
+    "@daitanjs/development": "^1.0.0",
+    "@daitanjs/error": "^1.0.1",
+    "@daitanjs/geo": "^1.0.1",
+    "@daitanjs/images": "^1.0.1",
+    "@daitanjs/intelligence": "^1.2.0",
+    "@daitanjs/queues": "^1.0.0",
+    "@daitanjs/security": "^1.0.0",
+    "@daitanjs/speech": "^1.0.1",
+    "@daitanjs/utilities": "^1.0.0",
+    "@langchain/community": "^0.3.45",
+    "@langchain/core": "^0.3.57",
+    "bullmq": "^5.8.2",
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "express": "^4.19.2",
+    "inquirer": "^9.2.22",
+    "ora": "^8.0.1",
+    "shelljs": "^0.8.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/daitandojo/@daitanjs/tree/main/packages/cli#readme"
+}

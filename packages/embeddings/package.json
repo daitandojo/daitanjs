@@ -1,0 +1,48 @@
+{
+  "name": "@daitanjs/embeddings",
+  "version": "1.0.4",
+  "description": "A library for creating and managing embeddings with PCA and k-means clustering.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "babel src --out-dir dist --extensions \".js\" --source-maps inline",
+    "watch": "babel src --out-dir dist --extensions \".js\" --source-maps inline --watch",
+    "test": "echo \"Error: no test specified for @daitanjs/embeddings\" && exit 0"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "embeddings",
+    "PCA",
+    "kmeans",
+    "machine learning",
+    "clustering"
+  ],
+  "author": "Buck Miller <haelpers@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daitandojo/@daitanjs"
+  },
+  "peerDependencies": {
+    "lodash": "^4.17.21"
+  },
+  "dependencies": {
+    "ml-pca": "latest",
+    "ml-kmeans": "latest"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
