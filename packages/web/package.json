@@ -1,6 +1,6 @@
 {
   "name": "@daitanjs/web",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "An intelligent library for robust web scraping, content extraction, and Google Custom Search, featuring automated strategy selection and a clean text output mode.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -26,6 +26,7 @@
     "clean": "rimraf dist",
     "build": "babel src --out-dir dist --extensions \".js\" --source-maps inline",
     "watch": "babel src --out-dir dist --extensions \".js\" --source-maps inline --watch",
+    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified for @daitanjs/web\" && exit 0"
   },
   "keywords": [
@@ -48,7 +49,6 @@
     "url": "https://github.com/daitandojo/@daitanjs",
     "directory": "packages/web"
   },
-  "peerDependencies": {},
   "dependencies": {
     "@daitanjs/config": "^1.0.0",
     "@daitanjs/development": "^1.0.0",
@@ -57,11 +57,24 @@
     "@daitanjs/apiqueries": "^1.0.3",
     "@daitanjs/validation": "^1.0.1",
     "jsdom": "^24.1.0",
-    "puppeteer-extra": "^3.3.6",
-    "puppeteer-extra-plugin-stealth": "^2.11.2",
-    "playwright": "^1.44.1",
     "cheerio": "^1.0.0-rc.12",
     "node-fetch": "^3.3.2"
+  },
+  "peerDependencies": {
+    "playwright": "^1.44.1",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  },
+  "peerDependenciesMeta": {
+    "playwright": {
+      "optional": true
+    },
+    "puppeteer-extra": {
+      "optional": true
+    },
+    "puppeteer-extra-plugin-stealth": {
+      "optional": true
+    }
   },
   "jest": {
     "transform": {

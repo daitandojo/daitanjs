@@ -11,9 +11,6 @@
  */
 
 import { retryWithBackoff, truncateString } from '@daitanjs/utilities';
-import puppeteer from 'puppeteer-extra';
-import StealthPlugin from 'puppeteer-extra-plugin-stealth';
-import playwright from 'playwright';
 import { getLogger } from '@daitanjs/development';
 import { getConfigManager } from '@daitanjs/config';
 import {
@@ -33,8 +30,6 @@ import { JSDOM } from 'jsdom';
 import { load as cheerioLoad } from 'cheerio';
 
 const defaultScrapingLogger = getLogger('daitan-web-scraping');
-
-puppeteer.use(StealthPlugin());
 
 const DEFAULT_REQUEST_TIMEOUT = 30000;
 const DEFAULT_MAX_RETRIES_BROWSER = 2;
@@ -255,6 +250,10 @@ async function downloadWithJsonAttrInternal(args) {
 }
 
 async function downloadWithPlaywrightInternal(args) {
+  // --- DYNAMIC IMPORT FIX ---
+  const { default: playwright } = await import('playwright');
+  // ---
+
   const {
     url,
     logger,
@@ -316,6 +315,12 @@ async function downloadWithPlaywrightInternal(args) {
 }
 
 async function downloadWithPuppeteerInternal(args) {
+  // --- DYNAMIC IMPORT FIX ---
+  const { default: puppeteer } = await import('puppeteer-extra');
+  const { default: StealthPlugin } = await import('puppeteer-extra-plugin-stealth');
+  puppeteer.use(StealthPlugin());
+  // ---
+
   const {
     url,
     logger,
